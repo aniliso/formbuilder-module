@@ -64,7 +64,7 @@ class FormbuilderServiceProvider extends ServiceProvider
      */
     private function registerShortcode()
     {
-        if($this->app->runningInConsole()===false)
+        if($this->app->runningInConsole()===false && class_exists('Shortcode'))
         {
             Shortcode::register('form', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::form');
             Shortcode::register('textinput', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::textinput');

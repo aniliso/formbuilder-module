@@ -18,8 +18,7 @@ class FormbuilderMiddleware
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $response->setContent(Shortcode::parse($response->original));
-
+        $response->setContent(Shortcode::parse($response->content()));
         return $response;
     }
 }
