@@ -3,7 +3,7 @@
 return [
     'title'   => [
         'form builder' => 'Form Oluşturucu',
-        'submission'   => 'Gönderim',
+        'submission'   => 'Başvuru',
         'create form'  => 'Form Ekle',
         'edit form'    => 'Form Düzenle',
         'form'         => 'form',
@@ -16,16 +16,16 @@ return [
         'update'          => 'Güncelle',
         'reset'           => 'Sıfırla',
         'cancel'          => 'İptal',
-        'view submission' => 'Tüm gönderimleri göster',
+        'view submission' => 'Tüm başvurular',
     ],
     'table'   => [
         'id'          => 'ID',
         'name'        => 'Adı',
-        'submissions' => 'Gönderimler',
+        'submissions' => 'Başvurular',
         'created at'  => 'Oluşturulma Tarihi',
         'shortcode'   => 'Kısa Kod',
         'actions'     => 'İşlemler',
-        'submission'  => 'Gönderimler',
+        'submission'  => 'Başvuru',
         'client_ip'   => 'IP Adresi',
     ],
     'form'    => [

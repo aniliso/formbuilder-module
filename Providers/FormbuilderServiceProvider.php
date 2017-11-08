@@ -2,12 +2,15 @@
 
 namespace Modules\Formbuilder\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Formbuilder\Events\Handlers\RegisterFormbuilderSidebar;
 use Pingpong\Shortcode\ShortcodeFacade as Shortcode;
+use Pingpong\Shortcode\ShortcodeFacade;
+use Pingpong\Shortcode\ShortcodeServiceProvider;
 
 class FormbuilderServiceProvider extends ServiceProvider
 {
@@ -24,6 +27,12 @@ class FormbuilderServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if($this->app->runningInConsole()===false) {
+            $this->app->register(ShortcodeServiceProvider::class);
+            $alias = AliasLoader::getInstance();
+            $alias->alias('Shortcode', ShortcodeFacade::class);
+        }
+
         $this->registerBindings();
         $this->registerShortcode();
 
@@ -51,12 +60,14 @@ class FormbuilderServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [
+            ShortcodeServiceProvider::class
+        ];
     }
 
     private function registerBindings()
     {
-        // add bindings
+
     }
 
     /**
