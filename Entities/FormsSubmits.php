@@ -41,6 +41,9 @@ class FormsSubmits extends Model
                         $formSubmitData = new FormSubmitData();
                         $formSubmitData->submit_id = $formSubmitId;
                         $formSubmitData->field_name = $key;
+                        if(is_array($value)) {
+                            $value = implode(', ', $value);
+                        }
                         $formSubmitData->field_value = $value;
                         $formSubmitData->field_order = $order;
                         $formSubmitData->save();

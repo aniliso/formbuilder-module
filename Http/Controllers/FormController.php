@@ -43,6 +43,9 @@ class FormController extends BasePublicController
 
         if (is_array($files)) {
             $dataFiles = $this->handleFiles($files, $formId, $data);
+            foreach ($files as $key => $file) {
+                unset($data[$key]);
+            }
         }
 
         if ($form->id) {

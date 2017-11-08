@@ -12,7 +12,6 @@ class FormbuilderShortcode
     {
         Shortcode::register($key, function ($attr, $content = null, $name = null) use ($value) {
             $text = Shortcode::parse($content);
-
             return $value;
         });
     }

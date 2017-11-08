@@ -11,7 +11,8 @@ class FormbuilderRequest extends BaseFormRequest
      */
     public function rules()
     {
-        $rules = [];
+        $rules = [
+        ];
 
         return $rules;
     }
@@ -27,6 +28,7 @@ class FormbuilderRequest extends BaseFormRequest
             'mail.from' => 'required',
             'mail.subject' => 'required',
             'mail.body' => 'required',
+            'mail.attachments' => ''
         ];
 
         return $rules;

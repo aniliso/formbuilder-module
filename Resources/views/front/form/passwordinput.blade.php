@@ -18,5 +18,6 @@
     <?php if ($helptext) {
     ?><p class="help-block"><?php echo $helptext ?></p><?php 
 } ?>
+      {!! $errors->first($name, '<span class="help-block">:message</span>') !!}
   </div>
 </div>

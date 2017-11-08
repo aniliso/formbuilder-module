@@ -14,6 +14,7 @@ class FormcustomRequest extends FormRequest
     public function rules()
     {
         $rules = [];
+        $this->request->add($this->allFiles());
         $data = $this->request->all();
         $formId = array_get($data, 'formbuilder_id');
         $formBuilder = Forms::find($formId);
@@ -87,8 +88,10 @@ class FormcustomRequest extends FormRequest
             if ($formMessages->invalid_phone != '') {
                 $messages['regex'] = $formMessages->invalid_phone;
             }
+            if($formMessages->invalid_file_type != '' && $formMessages->invalid_file_size != '') {
+                $messages['mimes'] = 'Dosya biçimi geçersiz';
+            }
         }
-
         return $messages;
     }
 
@@ -103,6 +106,9 @@ class FormcustomRequest extends FormRequest
         switch ($type) {
             case 'emailinput':
                 $validates[] = 'email';
+                break;
+            case 'filebutton':
+                $validates[] = 'mimes:jpeg,bmp,png,jpg,doc,docx,xls,xlsx,pdf,ppt,pptx,rar,zip';
                 break;
             case 'urlinput':
                 $validates[] = 'url';

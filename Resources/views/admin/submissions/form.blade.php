@@ -26,6 +26,7 @@
                     $formSubmissions = $form->formSubmits;
                 ?>
                 <div class="box-body">
+                    <div class="table table-responsive">
                     <table class="data-table table table-bordered table-hover">
                         <thead>
                         <tr>
@@ -73,6 +74,7 @@
                         </tfoot>
                     </table>
                     <!-- /.box-body -->
+                    </div>
                 </div>
                 <!-- /.box -->
             </div>

@@ -11,7 +11,7 @@
 		<?php if (trim($value)): ?>
 		<div class="checkbox-inline">
 		<label for="<?php echo $name . '-' . $i ?>">
-		  <input type="checkbox" name="<?php echo $name ?>" id="<?php echo $name . '-' . $i ?>" value="<?php echo $value ?>">
+		  <input type="checkbox" name="<?php echo $name ?>[]" id="<?php echo $name . '-' . $i ?>" value="<?php echo $value ?>">
 		  <?php echo $value ?>
 		</label>
 		</div>

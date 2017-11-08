@@ -44,13 +44,6 @@ class FormMail extends Model
         $body = Shortcode::parse($body);
         $attachments = Shortcode::parse($attachments);
 
-        Log::info($to);
-        Log::info($from);
-        Log::info($subject);
-        Log::info($body);
-        Log::info($additional_headers);
-        Log::info($attachments);
-
         Mail::raw($body, function ($message) use ($to, $from, $subject, $body, $additional_headers, $attachments) {
             $message->from($from, $from);
             /* $message->sender($address, $name = null); */
@@ -59,8 +52,8 @@ class FormMail extends Model
             $message->bcc($address, $name = null); */
             /* $message->replyTo($address, $name = null); */
             $message->subject($subject);
-            /* $message->priority($level);
-            $message->attach($pathToFile, array $options = []); */
+            /* $message->priority($level); */
+            if($attachments) $message->attach(public_path($attachments));
 
             // Attach a file from a raw $data string...
             /* $message->attachData($data, $name, array $options = []); */

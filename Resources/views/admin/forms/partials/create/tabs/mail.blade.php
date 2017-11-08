@@ -32,10 +32,10 @@
 		{!! Form::textarea("{$lang}[mail][body]", old("{$lang}.mail.body",$old), ['class' => "form-control", 'placeholder' => trans('formbuilder::mail.form.body')]) !!}
 		{!! $errors->first("{$lang}.mail.body", '<span class="help-block">:message</span>') !!}
 	</div>
-	<!--<div class='form-group{{ $errors->has("mail.attachments") ? ' has-error' : '' }}'>
-		{!! Form::label("mail[attachments]", trans('formbuilder::mail.form.attachments')) !!}
+	<div class='form-group{{ $errors->has("{$lang}.mail.attachments") ? ' has-error' : '' }}'>
+		{!! Form::label("{$lang}[mail][attachments]", trans('formbuilder::mail.form.attachments')) !!}
 		<?php $old = $formMail->attachments ?>
-		{!! Form::textarea("mail[attachments]", old("mail.attachments",$old), ['class' => "form-control", 'placeholder' => trans('formbuilder::mail.form.attachments')]) !!}
-		{!! $errors->first("mail.attachments", '<span class="help-block">:message</span>') !!}
-	</div>-->
+		{!! Form::text("{$lang}[mail][attachments]", old("{$lang}.mail.attachments",$old), ['class' => "form-control", 'placeholder' => trans('formbuilder::mail.form.attachments')]) !!}
+		{!! $errors->first("{$lang}.mail.attachments", '<span class="help-block">:message</span>') !!}
+	</div>
 </div>
