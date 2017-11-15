@@ -27,7 +27,7 @@ class FormbuilderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if($this->app->runningInConsole()===false) {
+        if($this->app->runningInConsole()===false && class_exists(ShortcodeServiceProvider::class)) {
             $this->app->register(ShortcodeServiceProvider::class);
             $alias = AliasLoader::getInstance();
             $alias->alias('Shortcode', ShortcodeFacade::class);
