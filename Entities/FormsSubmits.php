@@ -65,8 +65,10 @@ class FormsSubmits extends Model
                     }
                 }
                 DB::commit();
-                $formMail = new FormMail();
-                $formMail->sendMail($formSubmitId, $locale);
+                if($formBuilder->email) {
+                    $formMail = new FormMail();
+                    $formMail->sendMail($formSubmitId, $locale);
+                }
                 event(new FormbuilderEvent('submit_form', $data));
                 $bResult = true;
             } catch (\Exception $ex) {

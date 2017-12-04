@@ -61,8 +61,8 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <!--<a href="{{ URL::route('admin.formbuilder.submissions.form', [$form->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $form->id }}"><i class="glyphicon glyphicon-trash"></i></button>!-->
+                                    <a href="{{ URL::route('admin.formbuilder.submissions.form', [$form->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $form->id }}"><i class="glyphicon glyphicon-trash"></i></button>
                                     <a href="{{ URL::route('admin.formbuilder.submissions.form', [$form->id]) }}" class="btn btn-primary btn-flat">{{ trans('formbuilder::formbuilder.button.view submission') }}</a>
                                 </div>
                             </td>

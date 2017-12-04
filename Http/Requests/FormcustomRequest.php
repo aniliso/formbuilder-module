@@ -44,6 +44,19 @@ class FormcustomRequest extends FormRequest
         return $rules;
     }
 
+    public function attributes()
+    {
+        $attributes = [];
+        $data = $this->request->all();
+        $formId = array_get($data, 'formbuilder_id');
+        $formBuilder = Forms::find($formId);
+        if ($formBuilder->id) {
+            $fields = collect($formBuilder->getFields())->pluck('label', 'name');
+            return $fields->toArray();
+        }
+        return [];
+    }
+
     /**
      * @return bool
      */
@@ -109,6 +122,9 @@ class FormcustomRequest extends FormRequest
                 break;
             case 'filebutton':
                 $validates[] = 'mimes:jpeg,bmp,png,jpg,doc,docx,xls,xlsx,pdf,ppt,pptx,rar,zip';
+                break;
+            case 'identityinput':
+                $validates[] = "unique:formbuilder__form_submit_data,field_value,null,submit_id";
                 break;
             case 'urlinput':
                 $validates[] = 'url';

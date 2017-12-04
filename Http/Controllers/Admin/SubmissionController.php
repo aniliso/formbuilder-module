@@ -32,6 +32,29 @@ class SubmissionController extends AdminBaseController
         return view('formbuilder::admin.submissions.form', compact('form'));
     }
 
+    public function excel($id)
+    {
+        $form = Forms::findOrFail($id);
+        \Excel::create($form->getFormContent($this->locale)->name, function($excel) use ($form){
+            $excel->sheet($form->getFormContent($this->locale)->name, function($sheet) use ($form) {
+                $formFields = $form->getFields();
+                $formSubmissions = $form->formSubmits;
+                $datas = collect();
+                $fields = collect($formFields)->pluck('name')->toArray();
+                $datas->push($fields);
+                foreach ($formSubmissions as $submission):
+                    $data = $submission->formSubmitData();
+                    foreach ($formFields as $field):
+                        $data = $submission->formSubmitData();
+                        $fieldData[$field['name']] = $data->firstOrNew(['field_name' => $field['name'], 'submit_id' => $submission->id]);
+                    endforeach;
+                    $datas->push(collect($fieldData)->pluck('field_value')->toArray());
+                endforeach;
+                $sheet->rows($datas);
+            });
+        })->export('xls');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

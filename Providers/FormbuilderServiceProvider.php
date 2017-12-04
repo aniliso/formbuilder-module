@@ -79,6 +79,7 @@ class FormbuilderServiceProvider extends ServiceProvider
         {
             Shortcode::register('form', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::form');
             Shortcode::register('textinput', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::textinput');
+            Shortcode::register('identityinput', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::identityinput');
             Shortcode::register('passwordinput', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::passwordinput');
             Shortcode::register('searchinput', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::searchinput');
             Shortcode::register('prependedtext', 'Modules\Formbuilder\Shortcodes\FormbuilderShortcode::prependedtext');

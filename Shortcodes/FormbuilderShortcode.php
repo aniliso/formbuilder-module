@@ -37,6 +37,13 @@ class FormbuilderShortcode
         return view($template, compact('attr'))->render();
     }
 
+    public static function identityinput($attr, $content = null, $name = null)
+    {
+        $attr = $attr->getParameters();
+        $template = 'formbuilder::front.form.identityinput';
+        return view($template, compact('attr'))->render();
+    }
+
     public static function passwordinput($attr, $content = null, $name = null)
     {
         $attr = $attr->getParameters();

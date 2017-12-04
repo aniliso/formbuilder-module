@@ -13,7 +13,7 @@ class Forms extends Model
 {
     protected $table = 'formbuilder__forms';
     public $translatedAttributes = [];
-    protected $fillable = ['active'];
+    protected $fillable = ['active', 'email'];
     protected $fieldsDatas = [];
 
     public function contents()

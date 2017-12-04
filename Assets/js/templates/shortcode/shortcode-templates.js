@@ -20,6 +20,7 @@ define(function(require) {
   , selectmultiple           = require('text!templates/shortcode/selectmultiple.html')
   , textarea                 = require('text!templates/shortcode/textarea.html')
   , textinput                = require('text!templates/shortcode/textinput.html')
+  , identityinput            = require('text!templates/shortcode/identityinput.html')
   , emailinput               = require('text!templates/shortcode/emailinput.html')
   , urlinput                 = require('text!templates/shortcode/urlinput.html')
   , telinput                 = require('text!templates/shortcode/telinput.html')
@@ -32,6 +33,7 @@ define(function(require) {
     , prependedtext            : prependedtext
     , search                   : search
     , textinput                : textinput
+    , identityinput            : identityinput
     , appendedcheckbox         : appendedcheckbox
     , appendedtext             : appendedtext
     , filebutton               : filebutton

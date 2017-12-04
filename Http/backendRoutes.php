@@ -14,5 +14,6 @@ $router->group(['prefix' => '/formbuilder'], function (Router $router) {
 
     $router->get('submission/', ['as' => 'admin.formbuilder.submissions.index', 'uses' => 'SubmissionController@index']);
     $router->get('submission/{form}', ['as' => 'admin.formbuilder.submissions.form', 'uses' => 'SubmissionController@form']);
+    $router->get('submission/export/{form}', ['as' => 'admin.formbuilder.submissions.excel', 'uses' => 'SubmissionController@excel']);
     $router->delete('submission/{form}', ['as' => 'admin.formbuilder.submissions.destroy', 'uses' => 'SubmissionController@destroy']);
 });

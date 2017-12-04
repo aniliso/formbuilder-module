@@ -63,6 +63,9 @@
 						</div> {{-- end nav-tabs-custom --}}
                     </div>
                     <?php endforeach; ?>
+                        <div class="form-group">
+                            {!! Form::normalCheckbox('email', 'E-Posta Durumu', $errors, $form) !!}
+                        </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('formbuilder::formbuilder.button.update') }}</button>
                         <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('formbuilder::formbuilder.button.reset') }}</button>
