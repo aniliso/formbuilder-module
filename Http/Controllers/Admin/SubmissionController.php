@@ -36,7 +36,7 @@ class SubmissionController extends AdminBaseController
     {
         $form = Forms::findOrFail($id);
         \Excel::create($form->getFormContent($this->locale)->name, function($excel) use ($form){
-            $excel->sheet($form->getFormContent($this->locale)->name, function($sheet) use ($form) {
+            $excel->sheet('Sheet 1', function($sheet) use ($form) {
                 $formFields = $form->getFields();
                 $formSubmissions = $form->formSubmits;
                 $datas = collect();
