@@ -52,7 +52,15 @@
 							<?php $data = $submission->formSubmitData(); ?>
 							<td>
 								<?php $fieldData = $data->firstOrNew(['field_name' => $field['name'], 'submit_id' => $submission->id]); ?>
-								{{ $fieldData->field_value }}
+                                    <a href="#"
+                                       class="editable"
+                                       id="{{ $field['name'] }}"
+                                       data-url="{{ route('admin.formbuilder.submissions.update') }}"
+                                       data-type="text"
+                                       data-pk="{{ $submission->id }}"
+                                       data-title="{{ $field['name'] }}">
+                                        {{ $fieldData->field_value }}
+                                    </a>
 							</td>
 							<?php endforeach; ?>
 							<?php endif; ?>
@@ -126,6 +134,11 @@
                 ]
             });
         });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        });
         $(function () {
             $('.data-table').dataTable({
                 "paginate": true,
@@ -137,6 +150,12 @@
                 "order": [[ 0, "desc" ]],
                 "language": {
                     "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
+                },
+                "initComplete": function (settings, json) {
+                    $('.editable').editable({
+                        mode: 'inline',
+                        container: 'body'
+                    });
                 },
                 "columns": [
                     null,
