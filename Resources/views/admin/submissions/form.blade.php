@@ -151,7 +151,7 @@
                 "language": {
                     "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
                 },
-                "initComplete": function (settings, json) {
+                "fnDrawCallback": function() {
                     $('.editable').editable({
                         mode: 'inline',
                         container: 'body'
