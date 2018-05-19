@@ -61,6 +61,9 @@ class FormController extends BasePublicController
         $result = FormsSubmits::submitData($data, $dataFiles);
 
         if ($result) {
+            if(!empty($formMessages->redirect_to)) {
+                return redirect()->to($formMessages->redirect_to)->withSuccess($successMsg);
+            }
             return redirect()->back()->withSuccess($successMsg);
         } else {
             return redirect()->back()->withError($errorMsg);

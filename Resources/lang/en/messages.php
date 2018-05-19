@@ -8,6 +8,7 @@ return [
         'edit messages' => 'Edit messages used in the following situations.',
     ],
     'form' => [
+        'redirect_to' => 'Redirect URL',
         'success' => 'Form was sent successfully',
         'failure' => 'Form was failed to send',
         'validation_error' => 'Validation errors occurred',

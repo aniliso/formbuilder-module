@@ -2,6 +2,12 @@
 <div class="box-body">
 	<h3>{{ trans('formbuilder::messages.title.messages') }}</h3>
 	<p>{{ trans('formbuilder::messages.text.edit messages') }}</p>
+	<div class='form-group{{ $errors->has("{$lang}.messages.redirect_to") ? ' has-error' : '' }}'>
+		{!! Form::label("{$lang}[messages][redirect_to]", trans('formbuilder::messages.form.redirect_to')) !!}
+        <?php $old = $formMessages->redirect_to ?>
+		{!! Form::text("{$lang}[messages][redirect_to]", old("{$lang}.messages.success",$old), ['class' => "form-control", 'placeholder' => trans('formbuilder::messages.form.redirect_to')]) !!}
+		{!! $errors->first("{$lang}.messages.redirect_to", '<span class="help-block">:message</span>') !!}
+	</div>
 	<div class='form-group{{ $errors->has("{$lang}.messages.success") ? ' has-error' : '' }}'>
 		{!! Form::label("{$lang}[messages][success]", trans('formbuilder::messages.form.success')) !!}
 		<?php $old = $formMessages->success ?>

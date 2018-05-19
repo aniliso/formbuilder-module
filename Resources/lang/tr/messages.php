@@ -8,6 +8,7 @@ return [
         'edit messages' => 'Aşağıdaki durumlarda kullanılan mesajları düzenleyin.',
     ],
     'form' => [
+        'redirect_to' => 'URL Yönledirme',
         'success' => 'Form başarıyla gönderildi',
         'failure' => 'Form gönderilemedi',
         'validation_error' => 'Doğrulama hataları oluştu',

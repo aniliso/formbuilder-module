@@ -27,5 +27,6 @@ class FormMessages extends Model
                             'invalid_email',
                             'invalid_url',
                             'invalid_phone',
+                            'redirect_to'
                             ];
 }
