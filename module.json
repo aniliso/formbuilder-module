@@ -7,11 +7,14 @@
     "active": 1,
     "order": 1,
     "providers": [
+        "Pingpong\\Shortcode\\ShortcodeServiceProvider",
         "Modules\\Formbuilder\\Providers\\FormbuilderServiceProvider",
         "Modules\\Formbuilder\\Providers\\RouteServiceProvider",
 		"Modules\\Formbuilder\\Providers\\FormbuilderEventServiceProvider"
     ],
-    "aliases":{},
+    "aliases":{
+        "Shortcode" : "Pingpong\\Shortcode\\ShortcodeFacade"
+    },
     "files": [
         
     ]
