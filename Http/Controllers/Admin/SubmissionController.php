@@ -38,8 +38,9 @@ class SubmissionController extends AdminBaseController
     public function form($id)
     {
         $form = Forms::findOrFail($id);
+        $formSubmissions = $form->formSubmits()->paginate(12);
 
-        return view('formbuilder::admin.submissions.form', compact('form'));
+        return view('formbuilder::admin.submissions.form', compact('form', 'formSubmissions'));
     }
 
     public function excel($id)

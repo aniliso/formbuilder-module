@@ -21,9 +21,8 @@
                 <div class="box-header">
                 </div>
                 <!-- /.box-header -->
-				<?php 
+				<?php
                     $formFields = $form->getFields();
-                    $formSubmissions = $form->formSubmits;
                 ?>
                 <div class="box-body">
                     <div class="table table-responsive">
@@ -82,6 +81,7 @@
                         </tfoot>
                     </table>
                     <!-- /.box-body -->
+                    {!! $formSubmissions->render() !!}
                     </div>
                 </div>
                 <!-- /.box -->
@@ -141,7 +141,7 @@
         });
         $(function () {
             $('.data-table').dataTable({
-                "paginate": true,
+                "paginate": false,
                 "lengthChange": true,
                 "filter": true,
                 "sort": true,
