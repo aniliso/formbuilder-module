@@ -38,7 +38,7 @@ class SubmissionController extends AdminBaseController
     public function form($id)
     {
         $form = Forms::findOrFail($id);
-        $formSubmissions = $form->formSubmits()->paginate(12);
+        $formSubmissions = $form->formSubmits()->orderBy('created_at', 'desc')->paginate(12);
 
         return view('formbuilder::admin.submissions.form', compact('form', 'formSubmissions'));
     }
