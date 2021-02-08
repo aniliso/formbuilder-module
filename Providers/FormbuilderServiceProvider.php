@@ -2,14 +2,12 @@
 
 namespace Modules\Formbuilder\Providers;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Formbuilder\Events\Handlers\RegisterFormbuilderSidebar;
 use Pingpong\Shortcode\ShortcodeFacade as Shortcode;
-use Pingpong\Shortcode\ShortcodeFacade;
 
 class FormbuilderServiceProvider extends ServiceProvider
 {

@@ -2,7 +2,6 @@
 
 namespace Modules\Formbuilder\Shortcodes;
 
-use Illuminate\View\View;
 use Modules\Formbuilder\Entities\Forms;
 use Pingpong\Shortcode\ShortcodeFacade as Shortcode;
 
